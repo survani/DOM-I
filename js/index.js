@@ -39,7 +39,6 @@ const siteContent = {
 
 //? adds nav bar <a></a>
 const mainNav = document.getElementsByTagName('a');
-
 mainNav[0].textContent = siteContent['nav']['nav-item-1'];
 mainNav[1].textContent = siteContent['nav']['nav-item-2'];
 mainNav[2].textContent = siteContent['nav']['nav-item-3'];
@@ -47,8 +46,25 @@ mainNav[3].textContent = siteContent['nav']['nav-item-4'];
 mainNav[4].textContent = siteContent['nav']['nav-item-5'];
 mainNav[5].textContent = siteContent['nav']['nav-item-6'];
 
-let navText = document.querySelector('.nav');
-mainNav.style.color = 'green';
+//? Two new nav links
+const newNav = document.querySelector('nav');
+
+const newNavItem = document.createElement('a');
+newNavItem.textContent = 'Home';
+newNavItem.href = '#';
+
+const newNavItemTwo = document.createElement('a');
+newNavItemTwo.textContent = 'Legal';
+newNavItemTwo.href = '#';
+
+newNav.prepend(newNavItem);
+newNav.appendChild(newNavItemTwo);
+
+//? Updates Color for all nav items must be placed here if not it will break.
+Array.from(mainNav).forEach(element => {
+  element.style.color = 'green';
+})
+
 
 
 //? Example: Update the img src for the logo
@@ -91,3 +107,5 @@ allp[5].textContent = siteContent['contact']['address'];
 allp[6].textContent = siteContent['contact']['phone'];
 allp[7].textContent = siteContent['contact']['email'];
 allp[7].textContent = siteContent['footer']['copyright'];
+
+
