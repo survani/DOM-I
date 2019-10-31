@@ -37,6 +37,75 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+//? adds nav bar <a></a>
+const mainNav = document.getElementsByTagName('a');
+mainNav[0].textContent = siteContent['nav']['nav-item-1'];
+mainNav[1].textContent = siteContent['nav']['nav-item-2'];
+mainNav[2].textContent = siteContent['nav']['nav-item-3'];
+mainNav[3].textContent = siteContent['nav']['nav-item-4'];
+mainNav[4].textContent = siteContent['nav']['nav-item-5'];
+mainNav[5].textContent = siteContent['nav']['nav-item-6'];
+
+//? Two new nav links
+const newNav = document.querySelector('nav');
+
+const newNavItem = document.createElement('a');
+newNavItem.textContent = 'Home';
+newNavItem.href = '#';
+
+const newNavItemTwo = document.createElement('a');
+newNavItemTwo.textContent = 'Legal';
+newNavItemTwo.href = '#';
+
+newNav.prepend(newNavItem);
+newNav.appendChild(newNavItemTwo);
+
+//? Updates Color for all nav items must be placed here if not it will break.
+Array.from(mainNav).forEach(element => {
+  element.style.color = 'green';
+})
+
+
+
+//? Example: Update the img src for the logo
+const logo = document.getElementById("logo-img");
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+//? adds the image to the right of the header
+const newCta = document.getElementById('cta-img');
+newCta.setAttribute('src',siteContent['cta']['img-src']);
+
+//? adds the h1 of the header. 
+let newCtaText = document.querySelector('h1');
+newCtaText.textContent = siteContent['cta']['h1'];
+
+//? adds all the h4's to the page.
+const allH4 = document.querySelectorAll('h4');
+allH4[0].textContent = siteContent['main-content']['features-h4'];
+allH4[1].textContent = siteContent['main-content']['about-h4'];
+allH4[2].textContent = siteContent['main-content']['services-h4'];
+allH4[3].textContent = siteContent['main-content']['product-h4'];
+allH4[4].textContent = siteContent['main-content']['vision-h4'];
+allH4[5].textContent = siteContent['contact']['contact-h4'];
+
+//? adds the button on the page.
+const mainBtn = document.querySelector('button');
+mainBtn.textContent = siteContent['cta']['button'];
+
+//? adds the middle image of the page.
+let theMiddleImg = document.querySelector('.middle-img');
+theMiddleImg.setAttribute('src',siteContent ['main-content']['middle-img-src']);
+
+//? adds all the paragraphs in the page. 
+let allp = document.querySelectorAll('p');
+allp[0].textContent = siteContent['main-content']['features-content'];
+allp[1].textContent = siteContent['main-content']['about-content'];
+allp[2].textContent = siteContent['main-content']['services-content'];
+allp[3].textContent = siteContent['main-content']['product-content'];
+allp[4].textContent = siteContent['main-content']['vision-content'];
+allp[5].textContent = siteContent['contact']['address'];
+allp[6].textContent = siteContent['contact']['phone'];
+allp[7].textContent = siteContent['contact']['email'];
+allp[7].textContent = siteContent['footer']['copyright'];
+
+
